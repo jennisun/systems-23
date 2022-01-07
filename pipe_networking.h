@@ -20,7 +20,6 @@
 
 int server_setup();
 int server_connect();
-int server_handshake(int *to_client);
-int client_handshake(int *to_server);
+int client_connect();
 
 #endif

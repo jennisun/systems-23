@@ -12,7 +12,7 @@ int main() {
     from_client = server_connect(sd);
     int f = fork();
     if (!f) {
-      to_client = server_connect(from_client);
+      // to_client = server_connect(from_client);
       while (1) {
         int val = read(from_client, input, BUFFER_SIZE);
         if (val < 0) {
@@ -26,7 +26,7 @@ int main() {
           line[len - 1 - i] = input[i];
         }
         line[len] = '\0';
-        write(to_client, line, sizeof(line) - 1);
+        write(from_client, line, sizeof(line));
       }
     }
     else {
